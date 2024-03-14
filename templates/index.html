@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter 🔊</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2d2d2d; /* Dark background */
+            color: #ffffff; /* Light text color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #61dafb; /* Light blue */
+            background-color: #333; /* Dark gray */
+            padding: 20px;
+            margin-top: 0;
+            border-bottom: 2px solid #444; /* Darker border for separation */
+        }
+
+        img {
+            width: 70%;
+            max-width: 400px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        p {
+            color: #ccc; /* Light gray text color */
+            font-style: italic;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: hsl(0, 0%, 31%); /* Dark gray */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px hsla(0, 12%, 94%, 0.102);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ffffff; /* Light text color */
+        }
+
+        textarea, select, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid hsl(0, 33%, 96%); /* Darker border */
+            border-radius: 4px;
+            background-color: hsl(0, 4%, 95%); /* Darker background */
+            color: hwb(0 3% 97%); /* Light text color */
+        }
+
+        input[type="submit"] {
+            background-color: #61dafb; /* Light blue */
+            color: #ffffff; /* Light text color */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2183c6; /* Slightly darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Text to Speech Converter 🔊</h1>
+    <img src="https://www.piecex.com/product_image/20190625044028-00000544-image2.png" alt="Text to Speech 📣">
+    <p>
+        This app converts text to speech using OpenAI's tts-1 or tts-1-hd model.
+        Please enter your OpenAI API key. <b>Do not share your API key with others. 🤐</b>
+    </p>
+    <form action="{{ url_for('convert') }}" method="POST">
+        <label for="text">Enter text to convert to speech:</label>
+        <textarea name="text" rows="4" cols="50" placeholder="Hello, welcome to our text to speech converter!"></textarea>
+        
+        <label for="model">Select Model:</label>
+        <select name="model">
+            <option value="tts-1">tts-1</option>
+            <option value="tts-1-hd">tts-1-hd</option>
+        </select>
+
+        <label for="voice">Select Voice:</label>
+        <select name="voice">
+            <option value="alloy">alloy</option>
+            <option value="echo">echo</option>
+            <option value="fable">fable</option>
+            <option value="onyx">onyx</option>
+            <option value="nova">nova</option>
+            <option value="shimmer">shimmer</option>
+        </select>
+
+        <label for="format">Select Format:</label>
+        <select name="format">
+            <option value="mp3">mp3</option>
+            <option value="opus">opus</option>
+            <option value="aac">aac</option>
+            <option value="flac">flac</option>
+            <option value="wav">wav</option>
+        </select>
+
+        <input type="submit" value="Convert 🚀">
+    </form>
+</body>
+</html>
